@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <!-- SwitchOn FAQ page -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | SwitchOn</title>
+    <meta name="description" content="Answers to common questions about SwitchOn and the charging reminder experience." />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="loading-screen" aria-live="polite"><div class="loading-card glass"><div class="spinner"></div><h3>SwitchOn</h3><p>Preparing your experience…</p></div></div>
+    <div class="scroll-progress"></div>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="brand"><span class="brand-badge">S</span><span>SwitchOn</span></a>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+        <div class="nav-actions"><button class="search-toggle" aria-label="Search site">🔍</button><button class="theme-toggle" aria-label="Switch theme">🌙</button></div>
+      </div>
+      <div class="container search-panel glass" role="search"><input id="site-search" type="search" placeholder="Search pages..." aria-label="Search site" /><div class="search-results"></div></div>
+    </header>
+    <main class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">FAQ</span>
+          <h1>Questions, answered simply.</h1>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item glass reveal">
+            <button type="button" aria-expanded="false">How does SwitchOn know the socket is off?<span>+</span></button>
+            <div class="faq-panel"><p>It monitors the charging circuit and compares the expected power state with the actual input.</p></div>
+          </article>
+          <article class="faq-item glass reveal">
+            <button type="button" aria-expanded="false">Does it work with any phone?<span>+</span></button>
+            <div class="faq-panel"><p>Yes, it is designed for standard charging setups used by most phones and power adapters.</p></div>
+          </article>
+          <article class="faq-item glass reveal">
+            <button type="button" aria-expanded="false">Will it be available for mobile notifications?<span>+</span></button>
+            <div class="faq-panel"><p>Mobile alerts are part of the planned roadmap for future versions.</p></div>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer class="footer"><div class="container footer-grid"><div><div class="brand" style="margin-bottom: 0.8rem;"><span class="brand-badge">S</span><span>SwitchOn</span></div><p>Compact smart charging reminders built for people who want peace of mind.</p></div><div class="social-links" aria-label="Social links"><a href="#">in</a><a href="#">x</a><a href="#">◎</a></div><div class="footer-links"><a href="contact.html">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        item.querySelector('button').addEventListener('click', () => {
+          item.classList.toggle('active');
+          const expanded = item.classList.contains('active');
+          item.querySelector('button').setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+      });
+    </script>
+  </body>
+</html>

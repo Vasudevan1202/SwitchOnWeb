@@ -1,0 +1,19 @@
+/* Animation helpers */
+@keyframes pulse-ring {
+  0% { transform: scale(0.92); opacity: 0.7; }
+  50% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(0.92); opacity: 0.7; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.4s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 700ms ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}

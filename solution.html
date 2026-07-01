@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <!-- SwitchOn solution page -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solution | SwitchOn</title>
+    <meta name="description" content="SwitchOn uses a simple flow to detect charging issues and alert the user before the phone stays uncharged." />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="loading-screen" aria-live="polite"><div class="loading-card glass"><div class="spinner"></div><h3>SwitchOn</h3><p>Preparing your experience…</p></div></div>
+    <div class="scroll-progress"></div>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="brand"><span class="brand-badge">S</span><span>SwitchOn</span></a>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+        <div class="nav-actions"><button class="search-toggle" aria-label="Search site">🔍</button><button class="theme-toggle" aria-label="Switch theme">🌙</button></div>
+      </div>
+      <div class="container search-panel glass" role="search"><input id="site-search" type="search" placeholder="Search pages..." aria-label="Search site" /><div class="search-results"></div></div>
+    </header>
+    <main class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Solution</span>
+          <h1>How SwitchOn works.</h1>
+        </div>
+        <div class="flow-card reveal">
+          <div class="flow-steps">
+            <div class="flow-step"><div class="icon">🔌</div><div><strong>Plug Charger</strong><p>Connect your charger as usual.</p></div></div>
+            <div class="flow-step"><div class="icon">📱</div><div><strong>Connect Phone</strong><p>Place your phone on the charger.</p></div></div>
+            <div class="flow-step"><div class="icon">⚡</div><div><strong>Power Available?</strong><p>SwitchOn checks whether the socket is truly active.</p></div></div>
+            <div class="flow-step"><div class="icon">✅</div><div><strong>Yes → Charging</strong><p>Charging begins normally and the system stays quiet.</p></div></div>
+            <div class="flow-step"><div class="icon">🔔</div><div><strong>No → Reminder</strong><p>An LED or buzzer notifies you instantly.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer"><div class="container footer-grid"><div><div class="brand" style="margin-bottom: 0.8rem;"><span class="brand-badge">S</span><span>SwitchOn</span></div><p>Compact smart charging reminders built for people who want peace of mind.</p></div><div class="social-links" aria-label="Social links"><a href="#">in</a><a href="#">x</a><a href="#">◎</a></div><div class="footer-links"><a href="contact.html">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

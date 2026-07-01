@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="SwitchOn product illustration">
+  <rect width="600" height="420" rx="36" fill="#020617"/>
+  <circle cx="180" cy="180" r="120" fill="rgba(37,99,235,0.18)"/>
+  <circle cx="430" cy="120" r="90" fill="rgba(34,197,94,0.16)"/>
+  <rect x="176" y="98" width="248" height="224" rx="34" fill="#111827" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="220" y="144" width="160" height="112" rx="22" fill="rgba(255,255,255,0.06)"/>
+  <path d="M240 184h120" stroke="#2563EB" stroke-width="10" stroke-linecap="round"/>
+  <path d="M252 212h96" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="300" cy="242" r="18" fill="#22C55E"/>
+</svg>

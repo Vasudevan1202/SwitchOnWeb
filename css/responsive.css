@@ -1,0 +1,41 @@
+/* Responsive behaviors */
+@media (min-width: 720px) {
+  .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
+  .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .team-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .contact-grid { grid-template-columns: 1.05fr 0.95fr; }
+  .footer-grid { grid-template-columns: 1fr auto auto; align-items: center; }
+  .nav-links { display: flex; }
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    position: absolute;
+    top: 4.4rem;
+    left: 1rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem;
+    border-radius: 18px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+  }
+  .nav-links.active { display: flex; }
+  .nav-toggle { display: grid; }
+}
+
+@media (max-width: 540px) {
+  .section { padding: 4rem 0; }
+  .hero { padding-top: 2rem; }
+  .stats-grid, .cards-grid, .team-grid, .logo-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; }
+  .hero-media { min-height: 360px; }
+  .search-panel { right: 0.5rem; top: 4.3rem; }
+}

@@ -1,9 +1,9 @@
-/* Firebase configuration placeholder for GitHub Pages */
+/* Firebase configuration for SwitchOn */
 window.FIREBASE_CONFIG = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID'
+  apiKey: 'AIzaSyAwX6Vp_RResk-3Y9mYMbe2U0W-5NJw124',
+  authDomain: 'switchon01.firebaseapp.com',
+  projectId: 'switchon01',
+  storageBucket: 'switchon01.firebasestorage.app',
+  messagingSenderId: '926161836097',
+  appId: '1:926161836097:web:67b07998bcb83fe0184ec0'
 };

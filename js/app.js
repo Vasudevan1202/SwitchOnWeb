@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'Prototype', url: 'prototype.html' },
     { title: 'Survey', url: 'survey.html' },
     { title: 'Roadmap', url: 'roadmap.html' },
-    { title: 'Team', url: 'team.html' },
+    { title: 'Founder', url: 'team.html' },
     { title: 'FAQ', url: 'faq.html' },
     { title: 'Contact', url: 'contact.html' },
     { title: 'Waitlist', url: 'waitlist.html' }

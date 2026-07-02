@@ -17,7 +17,10 @@
     <meta name="twitter:title" content="SwitchOn | Smart Charging Reminder" />
     <meta name="twitter:description" content="A compact smart charging reminder that prevents forgotten wall switch issues." />
     <link rel="canonical" href="https://example.com/" />
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <meta name="msapplication-TileImage" content="favicon.png" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +42,9 @@
     <div class="loading-screen" aria-live="polite">
       <div class="loading-card glass">
         <div class="spinner" aria-hidden="true"></div>
-        <h3>SwitchOn</h3>
+        <div class="loading-brand" aria-label="SwitchOn">
+          <img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" />
+        </div>
         <p>Preparing your experience…</p>
       </div>
     </div>
@@ -52,8 +57,8 @@
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="brand" aria-label="SwitchOn home">
-          <span class="brand-badge">S</span>
-          <span>SwitchOn</span>
+          <img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" />
+          <span class="brand-name">SwitchOn</span>
         </a>
         <nav aria-label="Primary navigation">
           <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
@@ -64,7 +69,7 @@
             <li><a href="prototype.html">Prototype</a></li>
             <li><a href="survey.html">Survey</a></li>
             <li><a href="roadmap.html">Roadmap</a></li>
-            <li><a href="team.html">Team</a></li>
+            <li><a href="team.html">Founder</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="waitlist.html">Waitlist</a></li>
@@ -203,37 +208,6 @@
       <section class="section">
         <div class="container">
           <div class="section-heading reveal">
-            <span class="eyebrow">Testimonials</span>
-            <h2>What early testers are saying.</h2>
-          </div>
-          <div class="testimonial-grid">
-            <article class="testimonial-card reveal">
-              <blockquote>“It feels like a tiny safety net for my mornings.”</blockquote>
-              <div class="author">
-                <div class="avatar">AR</div>
-                <div>
-                  <strong>Ari</strong>
-                  <div>Student</div>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card reveal">
-              <blockquote>“I used to miss alarms because my phone never reached full charge.”</blockquote>
-              <div class="author">
-                <div class="avatar">LN</div>
-                <div>
-                  <strong>Lina</strong>
-                  <div>Founder</div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-heading reveal">
             <span class="eyebrow">Ready to join</span>
             <h2>Be the first to experience SwitchOn.</h2>
           </div>
@@ -249,10 +223,10 @@
     <footer class="footer">
       <div class="container footer-grid">
         <div>
-          <div class="brand" style="margin-bottom: 0.8rem;">
-            <span class="brand-badge">S</span>
-            <span>SwitchOn</span>
-          </div>
+          <a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home">
+            <img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" />
+            <span class="brand-name">SwitchOn</span>
+          </a>
           <p>Compact smart charging reminders built for people who want peace of mind.</p>
         </div>
         <div class="social-links" aria-label="Social links">

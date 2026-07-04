@@ -84,9 +84,10 @@
     progressBar.style.width = `${((state.currentStep + 1) / surveySteps.length) * 100}%`;
     stepIndicator.textContent = `Step ${state.currentStep + 1} of ${surveySteps.length}`;
     prevButton.disabled = state.currentStep === 0;
-    nextButton.hidden = state.currentStep === surveySteps.length - 1;
-    submitButton.hidden = state.currentStep !== surveySteps.length - 1;
-    if (state.currentStep === surveySteps.length - 1) {
+    const isFinalStep = state.currentStep === surveySteps.length - 1;
+    nextButton.hidden = isFinalStep;
+    submitButton.hidden = !isFinalStep;
+    if (isFinalStep) {
       submitButton.disabled = state.isSubmitting;
     }
     status.textContent = '';

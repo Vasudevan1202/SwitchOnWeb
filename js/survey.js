@@ -2,11 +2,22 @@
   const STORAGE_KEY = 'switchon-survey-submitted';
   const surveySteps = [
     {
+      id: 'participant',
+      title: 'Participant Information',
+      description: 'Please share a few details so we can contact you and keep your response linked to your profile.',
+      questions: [
+        { name: 'name', type: 'text', label: 'Full Name', required: true },
+        { name: 'email', type: 'email', label: 'Email Address', required: true },
+        { name: 'phone', type: 'text', label: 'Phone Number', required: true },
+        { name: 'city', type: 'text', label: 'City', required: false }
+      ]
+    },
+    {
       id: 'about',
       title: 'About You',
       description: 'A quick introduction to understand who is experiencing this everyday charging issue.',
       questions: [
-        { name: 'age', type: 'radio', label: 'What is your age group?', options: ['Under 18', '18–24', '25–34', '35–44', '45+'], required: true },
+        { name: 'ageGroup', type: 'radio', label: 'What is your age group?', options: ['Under 18', '18–24', '25–34', '35–44', '45+'], required: true },
         { name: 'occupation', type: 'radio', label: 'What is your current occupation?', options: ['School Student', 'College Student', 'Employee', 'Business Owner', 'Homemaker', 'Other'], required: true }
       ]
     },
@@ -16,10 +27,10 @@
       description: 'These questions help us understand how often this problem affects daily charging habits.',
       questions: [
         { name: 'chargingFrequency', type: 'radio', label: 'How often do you charge your phone?', options: ['Once a day', 'Twice a day', 'More than twice', 'Only when battery is low'], required: true },
-        { name: 'forgotCharger', type: 'radio', label: 'Have you ever plugged your phone into the charger but forgotten to turn ON the wall switch?', options: ['Yes', 'No'], required: true },
-        { name: 'frequency', type: 'radio', label: 'If yes, how often does this happen?', options: ['Daily', 'Weekly', 'Monthly', 'Rarely', 'Never'], required: false, visibleWhen: (responses) => responses.forgotCharger === 'Yes' },
-        { name: 'realization', type: 'checkbox', label: 'How did you realize your phone was not charging?', options: ['Checked the battery later', 'Needed the phone urgently', 'Battery percentage did not increase', 'Someone informed me', 'Other'], required: true },
-        { name: 'problems', type: 'checkbox', label: 'Has this ever caused any of these problems?', options: ['Missed an important call', 'Missed an online class or meeting', 'Phone switched off unexpectedly', 'Delayed my work', 'No major problem'], required: true },
+        { name: 'forgotSwitch', type: 'radio', label: 'Have you ever plugged your phone into the charger but forgotten to turn ON the wall switch?', options: ['Yes', 'No'], required: true },
+        { name: 'forgotFrequency', type: 'radio', label: 'If yes, how often does this happen?', options: ['Daily', 'Weekly', 'Monthly', 'Rarely', 'Never'], required: false, visibleWhen: (responses) => responses.forgotSwitch === 'Yes' },
+        { name: 'realizationMethods', type: 'checkbox', label: 'How did you realize your phone was not charging?', options: ['Checked the battery later', 'Needed the phone urgently', 'Battery percentage did not increase', 'Someone informed me', 'Other'], required: true },
+        { name: 'problemsExperienced', type: 'checkbox', label: 'Has this ever caused any of these problems?', options: ['Missed an important call', 'Missed an online class or meeting', 'Phone switched off unexpectedly', 'Delayed my work', 'No major problem'], required: true },
         { name: 'frustrationRating', type: 'rating', label: 'How frustrating is this problem?', required: true }
       ]
     },
@@ -30,13 +41,13 @@
       questions: [
         { name: 'productInterest', type: 'radio', label: 'If a device could remind you immediately that your phone is plugged in but the wall switch is OFF, would you use it?', options: ['Definitely', 'Probably', 'Not sure', 'Probably not', 'Definitely not'], required: true },
         { name: 'reminderPreference', type: 'checkbox', label: 'Which reminder would you prefer?', options: ['LED', 'Buzzer', 'Mobile Notification', 'Smartwatch Notification', 'Any reminder'], required: true },
-        { name: 'productPreference', type: 'radio', label: 'Where would you like this feature integrated?', options: ['Inside Charger', 'Smart Wall Socket', 'Plug Adapter', 'Extension Board', 'Mobile App + Hardware'], required: true },
-        { name: 'expectedPrice', type: 'radio', label: 'How much would you pay?', options: ['Less than ₹300', '₹300–500', '₹500–800', '₹800–1000', 'More than ₹1000'], required: true },
+        { name: 'integrationPreference', type: 'radio', label: 'Where would you like this feature integrated?', options: ['Inside Charger', 'Smart Wall Socket', 'Plug Adapter', 'Extension Board', 'Mobile App + Hardware'], required: true },
+        { name: 'priceExpectation', type: 'radio', label: 'How much would you pay?', options: ['Less than ₹300', '₹300–500', '₹500–800', '₹800–1000', 'More than ₹1000'], required: true },
         { name: 'recommendationRating', type: 'rating', label: 'How likely are you to recommend this product?', required: true },
         { name: 'supportedDevices', type: 'checkbox', label: 'Besides phones, what other devices should support this?', options: ['Laptop', 'Tablet', 'Wireless Earbuds', 'Smartwatch', 'Power Bank', 'Camera Battery'], required: true },
         { name: 'chargingLocation', type: 'radio', label: 'Where do you usually charge your phone?', options: ['Bedroom', 'Living Room', 'Home Office', 'Kitchen', 'Other'], required: true },
         { name: 'suggestions', type: 'textarea', label: 'Any suggestions?', required: false },
-        { name: 'betaTester', type: 'radio', label: 'Would you like to become a prototype tester?', options: ['Yes', 'No'], required: true }
+        { name: 'wantsPrototypeTesting', type: 'radio', label: 'Would you like to become a prototype tester?', options: ['Yes', 'No'], required: true }
       ]
     },
     {
@@ -44,9 +55,9 @@
       title: 'Prototype Tester',
       description: 'We would love to invite a few passionate users to try the first version of SwitchOn.',
       questions: [
-        { name: 'name', type: 'text', label: 'Name', required: true, visibleWhen: (responses) => responses.betaTester === 'Yes' },
-        { name: 'email', type: 'email', label: 'Email', required: true, visibleWhen: (responses) => responses.betaTester === 'Yes' },
-        { name: 'phone', type: 'text', label: 'Phone Number', required: true, visibleWhen: (responses) => responses.betaTester === 'Yes' }
+        { name: 'prototypeName', type: 'text', label: 'Name', required: true, visibleWhen: (responses) => responses.wantsPrototypeTesting === 'Yes' },
+        { name: 'prototypeEmail', type: 'email', label: 'Email', required: true, visibleWhen: (responses) => responses.wantsPrototypeTesting === 'Yes' },
+        { name: 'prototypePhone', type: 'text', label: 'Phone Number', required: true, visibleWhen: (responses) => responses.wantsPrototypeTesting === 'Yes' }
       ]
     }
   ];
@@ -158,6 +169,17 @@
     `;
   };
 
+  const validateParticipantInfo = () => {
+    const fullName = String(state.responses.name || '').trim();
+    const email = String(state.responses.email || '').trim();
+    const phone = String(state.responses.phone || '').trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!fullName) return 'Please enter your full name.';
+    if (!emailRegex.test(email)) return 'Please enter a valid email address.';
+    if (!/^\d{10}$/.test(phone)) return 'Phone number must contain exactly 10 digits.';
+    return '';
+  };
+
   const validateStep = () => {
     const step = surveySteps[state.currentStep];
     const visibleQuestions = step.questions.filter((question) => !question.visibleWhen || question.visibleWhen(state.responses));
@@ -178,15 +200,19 @@
       }
     }
 
-    if (state.currentStep === 1) {
-      if (state.responses.forgotCharger === 'Yes' && !state.responses.frequency) {
+    if (state.currentStep === 0) {
+      return validateParticipantInfo();
+    }
+
+    if (state.currentStep === 2) {
+      if (state.responses.forgotSwitch === 'Yes' && !state.responses.forgotFrequency) {
         return 'Please tell us how often this happens.';
       }
     }
 
-    if (state.currentStep === 3) {
-      if (state.responses.betaTester === 'Yes') {
-        if (!state.responses.name || !state.responses.email || !state.responses.phone) {
+    if (state.currentStep === 4) {
+      if (state.responses.wantsPrototypeTesting === 'Yes') {
+        if (!state.responses.prototypeName || !state.responses.prototypeEmail || !state.responses.prototypePhone) {
           return 'Please provide your name, email, and phone number for prototype testing.';
         }
       }
@@ -225,7 +251,7 @@
       state.responses[fieldName] = target.value;
     }
 
-    if (target.type === 'radio' && (fieldName === 'forgotCharger' || fieldName === 'betaTester')) {
+    if (target.type === 'radio' && (fieldName === 'forgotSwitch' || fieldName === 'wantsPrototypeTesting')) {
       renderStep();
     } else if (target.type === 'checkbox' || target.type === 'radio' || target.classList.contains('star-btn')) {
       renderStep();
@@ -266,27 +292,31 @@
 
     try {
       const payload = {
-        age: state.responses.age,
+        name: state.responses.name || '',
+        email: state.responses.email || '',
+        phone: state.responses.phone || '',
+        city: state.responses.city || '',
+        ageGroup: state.responses.ageGroup,
         occupation: state.responses.occupation,
         chargingFrequency: state.responses.chargingFrequency,
-        forgotCharger: state.responses.forgotCharger,
-        frequency: state.responses.frequency || '',
-        realization: state.responses.realization || [],
-        problems: state.responses.problems || [],
+        forgotSwitch: state.responses.forgotSwitch,
+        forgotFrequency: state.responses.forgotFrequency || '',
+        realizationMethods: state.responses.realizationMethods || [],
+        problemsExperienced: state.responses.problemsExperienced || [],
         frustrationRating: Number(state.responses.frustrationRating || 0),
         productInterest: state.responses.productInterest,
         reminderPreference: state.responses.reminderPreference || [],
-        productPreference: state.responses.productPreference,
-        expectedPrice: state.responses.expectedPrice,
+        integrationPreference: state.responses.integrationPreference,
+        priceExpectation: state.responses.priceExpectation,
         recommendationRating: Number(state.responses.recommendationRating || 0),
         supportedDevices: state.responses.supportedDevices || [],
         chargingLocation: state.responses.chargingLocation,
         suggestions: state.responses.suggestions || '',
-        betaTester: state.responses.betaTester,
-        name: state.responses.name || '',
-        email: state.responses.email || '',
-        phone: state.responses.phone || '',
-        timestamp: window.firebase && window.firebase.firestore && window.firebase.firestore.FieldValue
+        wantsPrototypeTesting: state.responses.wantsPrototypeTesting,
+        prototypeName: state.responses.prototypeName || '',
+        prototypeEmail: state.responses.prototypeEmail || '',
+        prototypePhone: state.responses.prototypePhone || '',
+        submittedAt: window.firebase && window.firebase.firestore && window.firebase.firestore.FieldValue
           ? window.firebase.firestore.FieldValue.serverTimestamp()
           : new Date()
       };

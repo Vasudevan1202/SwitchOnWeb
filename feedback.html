@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Feedback | SwitchOn</title>
+    <meta name="description" content="Share your feedback and help improve SwitchOn with a premium community feedback experience." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="scroll-progress"></div>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Community Feedback</span>
+          <h1>Your feedback helps us improve SwitchOn.</h1>
+          <p>Share your honest thoughts, suggestions, or ideas. You can submit feedback anonymously if you prefer.</p>
+        </div>
+
+        <div class="stats-grid reveal">
+          <article class="stat-card glass"><strong id="feedback-total">0</strong><span>Total Feedback</span></article>
+          <article class="stat-card glass"><strong id="feedback-average-rating">0</strong><span>Average Rating</span></article>
+          <article class="stat-card glass"><strong id="feedback-average-purchase">0</strong><span>Average Purchase Interest</span></article>
+          <article class="stat-card glass"><strong id="feedback-most-feature">N/A</strong><span>Most Suggested Feature</span></article>
+        </div>
+
+        <div class="feedback-grid">
+          <section class="glass page-card reveal">
+            <div class="section-heading">
+              <h2>Share your feedback</h2>
+              <p>We welcome honest input from every visitor.</p>
+            </div>
+            <form id="feedback-form" class="feedback-form">
+              <div class="form-field">
+                <label>Overall Rating <span class="required">*</span></label>
+                <div id="feedback-stars" class="star-rating" role="radiogroup" aria-label="Overall rating">
+                  <button type="button" class="star-btn" data-value="1" aria-label="Rate 1 of 5">★</button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="Rate 2 of 5">★</button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="Rate 3 of 5">★</button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="Rate 4 of 5">★</button>
+                  <button type="button" class="star-btn" data-value="5" aria-label="Rate 5 of 5">★</button>
+                </div>
+                <input type="hidden" id="feedback-rating" name="rating" />
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-message">What do you think about SwitchOn? <span class="required">*</span></label>
+                <textarea id="feedback-message" name="feedback" rows="4" placeholder="Tell us what you think about the product experience."></textarea>
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-likes">What do you like most?</label>
+                <textarea id="feedback-likes" name="likes" rows="2" placeholder="Share what stood out to you."></textarea>
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-improvements">What could we improve?</label>
+                <textarea id="feedback-improvements" name="improvements" rows="2" placeholder="Share any suggestion for making SwitchOn better."></textarea>
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-purchase">Would you buy this product?</label>
+                <select id="feedback-purchase" name="purchaseInterest">
+                  <option value="">Select an option</option>
+                  <option value="Definitely">Definitely</option>
+                  <option value="Probably">Probably</option>
+                  <option value="Maybe">Maybe</option>
+                  <option value="Probably Not">Probably Not</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-price">How much would you be willing to pay?</label>
+                <select id="feedback-price" name="priceExpectation">
+                  <option value="">Select an option</option>
+                  <option value="Less than ₹300">Less than ₹300</option>
+                  <option value="₹300–₹500">₹300–₹500</option>
+                  <option value="₹500–₹800">₹500–₹800</option>
+                  <option value="₹800–₹1000">₹800–₹1000</option>
+                  <option value="More than ₹1000">More than ₹1000</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-name">Name (optional)</label>
+                <input id="feedback-name" name="name" type="text" placeholder="Your name" />
+              </div>
+
+              <div class="form-field">
+                <label for="feedback-email">Email (optional)</label>
+                <input id="feedback-email" name="email" type="email" placeholder="you@example.com" />
+              </div>
+
+              <label class="checkbox-row">
+                <input type="checkbox" id="feedback-anonymous" name="anonymous" />
+                <span>Submit anonymously</span>
+              </label>
+
+              <button type="submit" id="feedback-submit" class="btn btn-primary submit-btn">
+                Submit Feedback
+                <span class="btn-spinner"></span>
+              </button>
+              <p id="feedback-status" class="form-status"></p>
+            </form>
+          </section>
+
+          <section class="glass page-card reveal">
+            <div class="feedback-wall-header">
+              <h2>Approved Feedback Wall</h2>
+              <p>New feedback appears first and only approved posts are shown publicly.</p>
+            </div>
+            <div id="feedback-wall" class="feedback-wall"></div>
+            <div id="feedback-pagination" class="pagination"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="firebase/firebase-config.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/feedback.js"></script>
+  </body>
+</html>

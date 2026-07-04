@@ -39,15 +39,6 @@
     </script>
   </head>
   <body>
-    <div class="loading-screen" aria-live="polite">
-      <div class="loading-card glass">
-        <div class="spinner" aria-hidden="true"></div>
-        <div class="loading-brand" aria-label="SwitchOn">
-          <img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" />
-        </div>
-        <p>Preparing your experience…</p>
-      </div>
-    </div>
     <div class="scroll-progress"></div>
     <button class="scroll-top" aria-label="Scroll to top">↑</button>
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -61,7 +52,7 @@
           <span class="brand-name">SwitchOn</span>
         </a>
         <nav aria-label="Primary navigation">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+          <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
           <ul class="nav-links" id="site-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="problem.html">Problem</a></li>
@@ -76,8 +67,12 @@
           </ul>
         </nav>
         <div class="nav-actions">
-          <button class="search-toggle" aria-label="Search site">🔍</button>
-          <button class="theme-toggle" aria-label="Switch theme">🌙</button>
+          <button class="search-toggle" aria-label="Search site" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="m20 20-4.2-4.2"></path>
+            </svg>
+          </button>
         </div>
       </div>
       <div class="container search-panel glass" role="search">
@@ -98,27 +93,36 @@
               <a href="#features" class="btn btn-secondary ripple-effect">Learn More</a>
             </div>
             <div class="hero-badges">
-              <span class="hero-badge">⚡ Smart detection</span>
-              <span class="hero-badge">🔔 Instant reminder</span>
-              <span class="hero-badge">📱 Future mobile alerts</span>
+              <span class="hero-badge">Smart detection</span>
+              <span class="hero-badge">Instant reminder</span>
+              <span class="hero-badge">Future mobile alerts</span>
             </div>
           </div>
           <div class="hero-media reveal">
-            <div class="mockup hero-card">
-              <div class="mockup-visual">
-                <div class="charge-ring"></div>
-                <div class="phone-card">
-                  <div class="screen">
-                    <strong>Charging status</strong>
-                    <div>Socket: Off</div>
-                    <div>Reminder: Active</div>
-                    <div>Battery: 24%</div>
+              <div class="mockup hero-card">
+                <div class="mockup-visual">
+                  <div class="charge-ring"></div>
+                  <div class="device-scene">
+                    <div class="phone-shell">
+                      <div class="phone-screen">
+                        <div class="battery-bar"><span></span></div>
+                        <div class="status-row">Socket: Off</div>
+                        <div class="status-row">Reminder: Active</div>
+                      </div>
+                    </div>
+                    <div class="cable-line"></div>
+                    <div class="adapter-box">
+                      <div class="adapter-led"></div>
+                    </div>
+                    <div class="socket-box">
+                      <span class="socket-dot"></span>
+                      <span class="socket-label">Switch OFF</span>
+                    </div>
                   </div>
+                  <div class="floating-badge">Reminder sequence active</div>
                 </div>
-                <div class="floating-badge">Charging reminder ready</div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -129,10 +133,10 @@
             <h2>Built for students, founders, and busy professionals.</h2>
           </div>
           <div class="logo-grid">
-            <div class="logo-pill reveal">Northstar Labs</div>
-            <div class="logo-pill reveal">Campus Charge</div>
-            <div class="logo-pill reveal">Aster Ventures</div>
-            <div class="logo-pill reveal">Nova School</div>
+            <div class="logo-pill reveal">Students</div>
+            <div class="logo-pill reveal">Professionals</div>
+            <div class="logo-pill reveal">Remote Workers</div>
+            <div class="logo-pill reveal">Families</div>
           </div>
         </div>
       </section>
@@ -143,36 +147,31 @@
             <span class="eyebrow">Features</span>
             <h2>Small device. Big confidence.</h2>
           </div>
-          <div class="cards-grid">
-            <article class="feature-card reveal" data-animate>
-              <div class="icon">🧠</div>
+          <div class="bento-grid">
+            <article class="feature-card reveal large-card" data-animate>
+              <div class="icon is-text">Detection</div>
               <h3>Smart Detection</h3>
-              <p>Identifies when your charger is connected but the socket remains off.</p>
+              <p>Identifies when your charger is connected but the outlet remains off.</p>
             </article>
             <article class="feature-card reveal" data-animate>
-              <div class="icon">🔔</div>
-              <h3>Instant Reminder</h3>
-              <p>Emits a clear cue so you can fix the issue before the battery drops further.</p>
-            </article>
-            <article class="feature-card reveal" data-animate>
-              <div class="icon">🔌</div>
+              <div class="icon is-text">Compatibility</div>
               <h3>Universal Compatibility</h3>
-              <p>Supports standard charging setups in homes, dorms, and workplaces.</p>
+              <p>Works across standard home, office, and dorm charging setups.</p>
             </article>
             <article class="feature-card reveal" data-animate>
-              <div class="icon">✨</div>
-              <h3>Compact Design</h3>
-              <p>Minimal footprint with a clean premium finish suited for any bedside table.</p>
+              <div class="icon is-text">Alerting</div>
+              <h3>Instant Reminder</h3>
+              <p>Lights and sounds alert you the moment power is unavailable.</p>
             </article>
-            <article class="feature-card reveal" data-animate>
-              <div class="icon">⚙️</div>
+            <article class="feature-card reveal tall-card" data-animate>
+              <div class="icon is-text">Mobile</div>
+              <h3>Future Mobile Alerts</h3>
+              <p>Planned mobile notifications will keep you informed even away from the desk.</p>
+            </article>
+            <article class="feature-card reveal wide-card" data-animate>
+              <div class="icon is-text">Setup</div>
               <h3>Plug &amp; Play</h3>
-              <p>Intuitive setup with no technical knowledge required.</p>
-            </article>
-            <article class="feature-card reveal" data-animate>
-              <div class="icon">📲</div>
-              <h3>Future Mobile Notifications</h3>
-              <p>Planned mobile syncing for alerts even when you are away from the device.</p>
+              <p>Minimal setup and a clean form factor designed for everyday life.</p>
             </article>
           </div>
         </div>
@@ -186,20 +185,20 @@
           </div>
           <div class="stats-grid">
             <article class="stat-card reveal">
-              <strong data-count="87" data-suffix="%">0%</strong>
-              <p>Forgot to turn their charger on.</p>
+              <strong data-count="100" data-suffix="%">0%</strong>
+              <p>Forgot to turn their charger switch on.</p>
             </article>
             <article class="stat-card reveal">
-              <strong data-count="91" data-suffix="%">0%</strong>
-              <p>Would want this product in their routine.</p>
+              <strong data-count="100" data-suffix="%">0%</strong>
+              <p>Showed interest in testing a prototype.</p>
             </article>
             <article class="stat-card reveal">
-              <strong data-count="12" data-suffix="m">0m</strong>
-              <p>Average time saved on each missed charge cycle.</p>
+              <strong data-count="5" data-suffix="/5">0/5</strong>
+              <p>Average frustration score reported by users.</p>
             </article>
             <article class="stat-card reveal">
-              <strong data-count="4.9" data-suffix="/5">0/5</strong>
-              <p>Early prototype satisfaction score.</p>
+              <strong data-count="1" data-suffix=" sec">0 sec</strong>
+              <p>Reminder detection time for the first alert.</p>
             </article>
           </div>
         </div>

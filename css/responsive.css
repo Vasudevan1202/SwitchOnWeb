@@ -33,9 +33,14 @@
 @media (max-width: 540px) {
   .section { padding: 4rem 0; }
   .hero { padding-top: 2rem; }
-  .stats-grid, .cards-grid, .team-grid, .logo-grid { grid-template-columns: 1fr; }
+  .stats-grid, .cards-grid, .team-grid, .logo-grid, .survey-grid, .solution-demo { grid-template-columns: 1fr; }
+  .page-card, .policy-card { padding: 1.1rem; }
+  .captcha-placeholder { flex-direction: column; align-items: flex-start; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .large-card, .tall-card, .wide-card { grid-column: auto; grid-row: auto; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn { width: 100%; }
   .hero-media { min-height: 360px; }
   .search-panel { right: 0.5rem; top: 4.3rem; }
+  .solution-hero { grid-template-columns: 1fr; }
 }

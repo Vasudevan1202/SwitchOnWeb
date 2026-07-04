@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en">
-  <!-- SwitchOn contact page -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | SwitchOn</title>
-    <meta name="description" content="Contact SwitchOn for early access, partnerships, or product questions." />
+    <meta name="description" content="Contact SwitchOn for partnerships, feedback, or early access questions." />
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="shortcut icon" href="favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -16,36 +15,130 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="loading-screen" aria-live="polite"><div class="loading-card glass"><div class="spinner"></div><div class="loading-brand" aria-label="SwitchOn"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /></div><p>Preparing your experience…</p></div></div>
     <div class="scroll-progress"></div>
+    <div class="reading-progress"></div>
     <button class="scroll-top" aria-label="Scroll to top">↑</button>
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
-        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
-        <div class="nav-actions"><button class="search-toggle" aria-label="Search site">🔍</button><button class="theme-toggle" aria-label="Switch theme">🌙</button></div>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+        <div class="nav-actions"><button class="search-toggle" aria-label="Search site" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg></button></div>
       </div>
       <div class="container search-panel glass" role="search"><input id="site-search" type="search" placeholder="Search pages..." aria-label="Search site" /><div class="search-results"></div></div>
     </header>
-    <main class="section">
-      <div class="container contact-grid">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Contact</span>
-          <h1>Let’s talk about smarter charging.</h1>
-          <p>Reach out for partnerships, interviews, or pre-launch updates.</p>
+
+    <main>
+      <section class="section page-hero">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Contact</span>
+            <h1>Get in Touch</h1>
+            <p>Have questions, feedback, partnership ideas, or want to learn more about SwitchOn? We'd love to hear from you.</p>
+          </div>
         </div>
-        <div class="form-card glass reveal">
-          <form id="contact-form">
-            <div class="form-field"><label for="name">Name</label><input id="name" name="name" required /></div>
-            <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
-            <div class="form-field"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
-            <button class="btn btn-primary ripple-effect" type="submit">Send Message</button>
-          </form>
-          <p id="contact-status" aria-live="polite"></p>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="page-shell">
+            <div class="contact-grid">
+              <div class="form-card glass reveal">
+                <form id="contact-form" novalidate>
+                  <div class="form-field">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name" placeholder="Your name" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" placeholder="How can we help?" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Tell us more..." required></textarea>
+                  </div>
+                  <div class="captcha-placeholder">
+                    <span class="captcha-badge">reCAPTCHA</span>
+                    <p>Protected by reCAPTCHA. Future integration will be added here.</p>
+                  </div>
+                  <button class="btn btn-primary ripple-effect submit-btn" type="submit">
+                    <span class="btn-label">Send Message</span>
+                    <span class="btn-spinner" aria-hidden="true"></span>
+                  </button>
+                  <p class="form-status" id="contact-status" aria-live="polite"></p>
+                </form>
+              </div>
+
+              <div class="page-card glass reveal">
+                <div class="contact-card">
+                  <h3>Contact Information</h3>
+                  <p>We typically reply within 24–48 hours. Collaboration and prototype testing opportunities are always welcome.</p>
+                  <div class="contact-meta">
+                    <div class="contact-meta-item"><span>Founder</span><strong>Vasu</strong></div>
+                    <div class="contact-meta-item"><span>Role</span><strong>CEO &amp; Founder</strong></div>
+                    <div class="contact-meta-item"><span>Startup</span><strong>SwitchOn</strong></div>
+                    <div class="contact-meta-item"><span>Email</span><strong>founder@switchon.qzz.io</strong></div>
+                    <div class="contact-meta-item"><span>Website</span><strong><a href="https://switchon.qzz.io" target="_blank" rel="noreferrer">https://switchon.qzz.io</a></strong></div>
+                  </div>
+                  <div class="contact-socials" aria-label="Social links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-card glass reveal">
+              <h3>Frequently Asked Questions</h3>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <strong>How quickly will you reply?</strong>
+                  <span>We aim to respond within 24–48 hours.</span>
+                </div>
+                <div class="faq-item">
+                  <strong>Can I collaborate with SwitchOn?</strong>
+                  <span>Yes, we are open to collaboration opportunities.</span>
+                </div>
+                <div class="faq-item">
+                  <strong>Can I become a prototype tester?</strong>
+                  <span>Yes. Join our waitlist to receive updates and early testing opportunities.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home">
+            <img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" />
+            <span class="brand-name">SwitchOn</span>
+          </a>
+          <p>Compact smart charging reminders built for people who want peace of mind.</p>
+        </div>
+        <div class="social-links" aria-label="Social links">
+          <a href="#">in</a>
+          <a href="#">x</a>
+          <a href="#">◎</a>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="team.html">Founder</a>
         </div>
       </div>
-    </main>
-    <footer class="footer"><div class="container footer-grid"><div><a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" /><span class="brand-name">SwitchOn</span></a><p>Compact smart charging reminders built for people who want peace of mind.</p></div><div class="social-links" aria-label="Social links"><a href="#">in</a><a href="#">x</a><a href="#">◎</a></div><div class="footer-links"><a href="contact.html">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+    </footer>
+
     <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore-compat.js"></script>
     <script src="firebase/firebase-config.js"></script>
@@ -54,18 +147,62 @@
     <script src="js/app.js"></script>
     <script src="js/firebase.js"></script>
     <script>
-      document.getElementById('contact-form').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const payload = Object.fromEntries(new FormData(event.target).entries());
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contact-form');
         const status = document.getElementById('contact-status');
-        status.textContent = 'Saving your message…';
-        try {
-          await window.submitToFirestore('contacts', { ...payload, submittedAt: new Date().toISOString() });
-          status.textContent = 'Thanks! Your message has been saved.';
-          event.target.reset();
-        } catch (error) {
-          status.textContent = 'Your message was queued locally because Firebase is not configured.';
-        }
+        const submitButton = form?.querySelector('.submit-btn');
+        const buttonLabel = submitButton?.querySelector('.btn-label');
+
+        form?.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const formData = new FormData(form);
+          const values = Object.fromEntries(formData.entries());
+
+          const name = String(values.name || '').trim();
+          const email = String(values.email || '').trim();
+          const subject = String(values.subject || '').trim();
+          const message = String(values.message || '').trim();
+
+          if (!name || !email || !subject || !message) {
+            status.textContent = 'Please complete every field before sending.';
+            status.className = 'form-status error';
+            return;
+          }
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(email)) {
+            status.textContent = 'Please enter a valid email address.';
+            status.className = 'form-status error';
+            return;
+          }
+
+          status.textContent = '';
+          status.className = 'form-status';
+          submitButton.classList.add('is-loading');
+          submitButton.disabled = true;
+          buttonLabel.textContent = 'Sending...';
+
+          try {
+            await window.submitToFirestore('contacts', {
+              name,
+              email,
+              subject,
+              message,
+              submittedAt: new Date().toISOString()
+            });
+            status.textContent = 'Thanks! Your message has been received.';
+            status.className = 'form-status success';
+            form.reset();
+          } catch (error) {
+            console.error('Contact submit failed:', error);
+            status.textContent = 'There was a problem sending your message. Please try again later.';
+            status.className = 'form-status error';
+          } finally {
+            submitButton.classList.remove('is-loading');
+            submitButton.disabled = false;
+            buttonLabel.textContent = 'Send Message';
+          }
+        });
       });
     </script>
   </body>

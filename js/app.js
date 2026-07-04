@@ -1,8 +1,8 @@
 /* Global site behavior for SwitchOn */
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
-  const loadingScreen = document.querySelector('.loading-screen');
   const progressBar = document.querySelector('.scroll-progress');
+  const readingProgressBar = document.querySelector('.reading-progress');
   const scrollTopButton = document.querySelector('.scroll-top');
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -27,10 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'Waitlist', url: 'waitlist.html' }
   ];
 
-  if (loadingScreen) {
-    setTimeout(() => loadingScreen.classList.add('hidden'), 700);
-  }
-
   const updateScrollProgress = () => {
     const scrollTop = window.scrollY;
     const height = document.documentElement.scrollHeight - window.innerHeight;
@@ -39,8 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollTopButton) scrollTopButton.classList.toggle('visible', scrollTop > 600);
   };
 
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  const updateReadingProgress = () => {
+    const scrollTop = window.scrollY;
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = height > 0 ? (scrollTop / height) * 100 : 0;
+    if (readingProgressBar) readingProgressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  };
+
+  window.addEventListener('scroll', () => {
+    updateScrollProgress();
+    updateReadingProgress();
+  }, { passive: true });
   updateScrollProgress();
+  updateReadingProgress();
 
   if (scrollTopButton) {
     scrollTopButton.addEventListener('click', (event) => {
@@ -126,6 +133,57 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = (event.clientY / window.innerHeight - 0.5) * 10;
       hero.style.transform = `perspective(900px) rotateY(${x}deg) rotateX(${-y}deg)`;
     });
+  }
+
+  const demoSteps = Array.from(document.querySelectorAll('.demo-step'));
+  const demoStatusLabel = document.querySelector('.demo-status-label');
+  const demoStatusCopy = document.querySelector('.demo-status-copy');
+  const demoControls = {
+    prev: document.querySelector('[data-demo-control="prev"]'),
+    next: document.querySelector('[data-demo-control="next"]'),
+    replay: document.querySelector('[data-demo-control="replay"]')
+  };
+
+  if (demoSteps.length && demoStatusLabel && demoStatusCopy) {
+    const demoMessages = [
+      { label: 'Standby', copy: 'The charger is connected and SwitchOn is preparing to verify the outlet.' },
+      { label: 'Power check', copy: 'The outlet appears inactive, so the system shifts into a reminder state.' },
+      { label: 'Reminder ready', copy: 'A visible alert is shown so the user can act before the morning is lost.' },
+      { label: 'Recovery', copy: 'Once power returns, the device transitions back to a calm, ready state.' }
+    ];
+
+    let activeDemoStep = 0;
+
+    const updateDemo = () => {
+      demoSteps.forEach((step, index) => {
+        step.classList.toggle('is-active', index === activeDemoStep);
+        step.classList.toggle('is-complete', index < activeDemoStep);
+        step.classList.toggle('is-warning', index === activeDemoStep && activeDemoStep > 0);
+      });
+
+      demoStatusLabel.textContent = demoMessages[activeDemoStep].label;
+      demoStatusCopy.textContent = demoMessages[activeDemoStep].copy;
+
+      if (demoControls.prev) demoControls.prev.disabled = activeDemoStep === 0;
+      if (demoControls.next) demoControls.next.disabled = activeDemoStep === demoMessages.length - 1;
+    };
+
+    demoControls.prev?.addEventListener('click', () => {
+      activeDemoStep = Math.max(0, activeDemoStep - 1);
+      updateDemo();
+    });
+
+    demoControls.next?.addEventListener('click', () => {
+      activeDemoStep = Math.min(demoMessages.length - 1, activeDemoStep + 1);
+      updateDemo();
+    });
+
+    demoControls.replay?.addEventListener('click', () => {
+      activeDemoStep = 0;
+      updateDemo();
+    });
+
+    updateDemo();
   }
 
   const navLinksItems = document.querySelectorAll('.nav-links a');

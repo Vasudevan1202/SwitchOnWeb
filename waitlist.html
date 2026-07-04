@@ -16,14 +16,13 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="loading-screen" aria-live="polite"><div class="loading-card glass"><div class="spinner"></div><div class="loading-brand" aria-label="SwitchOn"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /></div><p>Preparing your experience…</p></div></div>
     <div class="scroll-progress"></div>
     <button class="scroll-top" aria-label="Scroll to top">↑</button>
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
-        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
-        <div class="nav-actions"><button class="search-toggle" aria-label="Search site">🔍</button><button class="theme-toggle" aria-label="Switch theme">🌙</button></div>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+        <div class="nav-actions"><button class="search-toggle" aria-label="Search site" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg></button></div>
       </div>
       <div class="container search-panel glass" role="search"><input id="site-search" type="search" placeholder="Search pages..." aria-label="Search site" /><div class="search-results"></div></div>
     </header>
@@ -65,7 +64,8 @@
           status.textContent = 'You are on the list. Thanks for joining!';
           event.target.reset();
         } catch (error) {
-          status.textContent = 'Your details were queued locally because Firebase is not configured.';
+          console.error('Waitlist submit failed:', error);
+          status.textContent = 'There was a problem saving your details. Please try again later.';
         }
       });
     </script>

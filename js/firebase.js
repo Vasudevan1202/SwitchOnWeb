@@ -1,14 +1,15 @@
-/* Firebase Firestore integration placeholder */
-const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID'
-};
+/* Firebase Firestore integration */
+const firebaseConfig = window.FIREBASE_CONFIG || null;
 
-window.FIREBASE_CONFIG = firebaseConfig;
+if (!firebaseConfig) {
+  console.warn('Firebase configuration is missing. Firestore submissions will be queued locally.');
+}
+
+if (window.firebase && window.firebase.initializeApp && firebaseConfig) {
+  if (!window.firebase.apps || window.firebase.apps.length === 0) {
+    window.firebase.initializeApp(firebaseConfig);
+  }
+}
 
 window.submitToFirestore = async (collectionName, payload) => {
   if (!window.firebase || !window.firebase.firestore) {

@@ -16,33 +16,192 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <div class="loading-screen" aria-live="polite"><div class="loading-card glass"><div class="spinner"></div><div class="loading-brand" aria-label="SwitchOn"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /></div><p>Preparing your experience…</p></div></div>
     <div class="scroll-progress"></div>
     <button class="scroll-top" aria-label="Scroll to top">↑</button>
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
-        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
-        <div class="nav-actions"><button class="search-toggle" aria-label="Search site">🔍</button><button class="theme-toggle" aria-label="Switch theme">🌙</button></div>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+        <div class="nav-actions"><button class="search-toggle" aria-label="Search site" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg></button></div>
       </div>
       <div class="container search-panel glass" role="search"><input id="site-search" type="search" placeholder="Search pages..." aria-label="Search site" /><div class="search-results"></div></div>
     </header>
-    <main class="section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Solution</span>
-          <h1>How SwitchOn works.</h1>
-        </div>
-        <div class="flow-card reveal">
-          <div class="flow-steps">
-            <div class="flow-step"><div class="icon">🔌</div><div><strong>Plug Charger</strong><p>Connect your charger as usual.</p></div></div>
-            <div class="flow-step"><div class="icon">📱</div><div><strong>Connect Phone</strong><p>Place your phone on the charger.</p></div></div>
-            <div class="flow-step"><div class="icon">⚡</div><div><strong>Power Available?</strong><p>SwitchOn checks whether the socket is truly active.</p></div></div>
-            <div class="flow-step"><div class="icon">✅</div><div><strong>Yes → Charging</strong><p>Charging begins normally and the system stays quiet.</p></div></div>
-            <div class="flow-step"><div class="icon">🔔</div><div><strong>No → Reminder</strong><p>An LED or buzzer notifies you instantly.</p></div></div>
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="solution-hero reveal">
+            <div class="solution-copy">
+              <span class="eyebrow">Solution</span>
+              <h1>How SwitchOn works in a single glance.</h1>
+              <p>From plug-in detection to instant reminders, the experience is designed to feel simple, clear, and dependable.</p>
+              <div class="hero-actions">
+                <a href="#demo" class="btn btn-primary ripple-effect">Try Demo</a>
+                <a href="prototype.html" class="btn btn-secondary ripple-effect">View Prototype</a>
+              </div>
+            </div>
+            <div class="solution-visual glass">
+              <div class="flow-illustration" aria-label="Charging process illustration">
+                <div class="device-card">Phone</div>
+                <div class="connector">USB Cable</div>
+                <div class="device-card accent">SwitchOn</div>
+                <div class="device-card muted">Wall Socket</div>
+                <div class="decision-pill">Power ON?</div>
+                <div class="result success">Charging</div>
+                <div class="result warning">Reminder</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Interactive flow</span>
+            <h2>A clear path from setup to alert.</h2>
+          </div>
+          <div class="flow-card reveal">
+            <div class="flow-track">
+              <div class="flow-node">
+                <div class="flow-icon">Plug-in</div>
+                <div>
+                  <strong>Plug Charger</strong>
+                  <p>Connect your charger as usual.</p>
+                </div>
+              </div>
+              <div class="flow-arrow">Next</div>
+              <div class="flow-node">
+                <div class="flow-icon">Connect</div>
+                <div>
+                  <strong>Connect Phone</strong>
+                  <p>Place your phone on the charger.</p>
+                </div>
+              </div>
+              <div class="flow-arrow">Next</div>
+              <div class="flow-node">
+                <div class="flow-icon">Verify</div>
+                <div>
+                  <strong>Detect Power</strong>
+                  <p>SwitchOn verifies whether the socket is live.</p>
+                </div>
+              </div>
+              <div class="flow-arrow">Next</div>
+              <div class="flow-decision">
+                <div class="decision-box">
+                  <span class="decision-label">Power Available?</span>
+                  <div class="decision-actions">
+                    <span class="decision-chip success">Yes</span>
+                    <span class="decision-chip warning">No</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="demo">
+        <div class="container">
+          <div class="solution-demo reveal">
+            <div class="demo-panel glass">
+              <span class="eyebrow">Try the experience</span>
+              <h3>See the reminder sequence in motion.</h3>
+              <p>Use the step controls to walk through the system flow and see how the experience changes from setup to alert.</p>
+              <div class="demo-controls">
+                <button class="btn btn-secondary ripple-effect" type="button" data-demo-control="prev">Previous</button>
+                <button class="btn btn-primary ripple-effect" type="button" data-demo-control="next">Next</button>
+                <button class="btn btn-secondary ripple-effect" type="button" data-demo-control="replay">Replay</button>
+              </div>
+              <div class="demo-sequence" aria-live="polite">
+                <span class="demo-step">Plug charger</span>
+                <span class="demo-step">Connect phone</span>
+                <span class="demo-step">Check socket</span>
+                <span class="demo-step">Reminder</span>
+              </div>
+              <div class="demo-status-panel">
+                <p class="demo-status-label">Standby</p>
+                <p class="demo-status-copy">The charger is connected and SwitchOn is preparing to verify the outlet.</p>
+              </div>
+            </div>
+            <div class="product-card glass">
+              <div class="product-render">
+                <div class="product-shell"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cards-grid reveal">
+            <article class="feature-card">
+              <div class="icon is-text">Reliability</div>
+              <h3>Never miss calls</h3>
+              <p>Stay confident that important charging moments are not missed.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon is-text">Power</div>
+              <h3>Prevent surprise drain</h3>
+              <p>Avoid slow mornings caused by a charger that never actually powered up.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon is-text">Response</div>
+              <h3>Works instantly</h3>
+              <p>Simple feedback that makes the situation obvious in seconds.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon is-text">Setup</div>
+              <h3>Plug &amp; Play</h3>
+              <p>No complicated setup, just clean reliable performance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Technology</span>
+            <h2>Built on a simple and credible process.</h2>
+          </div>
+          <div class="cards-grid reveal">
+            <article class="feature-card">
+              <div class="icon is-text">Sense</div>
+              <h3>Detects connection</h3>
+              <p>Recognizes when the charger and phone are linked.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon is-text">Verify</div>
+              <h3>Checks power status</h3>
+              <p>Verifies whether the socket is actually delivering power.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon is-text">Notify</div>
+              <h3>Triggers reminder</h3>
+              <p>Warns the user immediately when power is unavailable.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon is-text">Resume</div>
+              <h3>Resumes charging</h3>
+              <p>Continues smoothly once power is restored.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-card reveal">
+            <h2>Ready to never forget again?</h2>
+            <p>Join the waitlist or explore the prototype to see the experience up close.</p>
+            <div class="hero-actions">
+              <a href="waitlist.html" class="btn btn-primary ripple-effect">Join Waitlist</a>
+              <a href="prototype.html" class="btn btn-secondary ripple-effect">View Prototype</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer"><div class="container footer-grid"><div><a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" /><span class="brand-name">SwitchOn</span></a><p>Compact smart charging reminders built for people who want peace of mind.</p></div><div class="social-links" aria-label="Social links"><a href="#">in</a><a href="#">x</a><a href="#">◎</a></div><div class="footer-links"><a href="contact.html">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
     <script src="js/theme.js"></script>

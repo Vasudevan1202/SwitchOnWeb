@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Results | SwitchOn</title>
+    <meta name="description" content="Live SwitchOn survey insights from real user responses collected directly in Firebase Firestore." />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="scroll-progress"></div>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="survey-results.html" aria-current="page">Results</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Live Survey Analytics</span>
+          <h1>Real-time feedback from early adopters.</h1>
+          <p>Every response is pulled directly from Firebase Firestore and updates automatically as new submissions arrive.</p>
+        </div>
+
+        <div class="stats-grid reveal">
+          <article class="stat-card glass">
+            <strong data-count="0" id="total-responses">0</strong>
+            <span>Total Responses</span>
+          </article>
+          <article class="stat-card glass">
+            <strong data-count="0" id="prototype-testers">0</strong>
+            <span>Prototype Testers</span>
+          </article>
+          <article class="stat-card glass">
+            <strong data-count="0" id="avg-rating">0</strong>
+            <span>Average Rating</span>
+          </article>
+          <article class="stat-card glass">
+            <strong data-count="0" id="avg-frustration">0</strong>
+            <span>Average Frustration</span>
+          </article>
+        </div>
+
+        <div class="section-heading reveal" style="margin-top: 2rem;">
+          <h2>Key Insights</h2>
+        </div>
+        <div class="cards-grid reveal">
+          <article class="feature-card glass">
+            <h3>Forgot charger</h3>
+            <p id="forgot-percent">0%</p>
+          </article>
+          <article class="feature-card glass">
+            <h3>Interested in SwitchOn</h3>
+            <p id="interest-percent">0%</p>
+          </article>
+          <article class="feature-card glass">
+            <h3>Most Preferred Reminder</h3>
+            <p id="most-reminder">—</p>
+          </article>
+          <article class="feature-card glass">
+            <h3>Most Preferred Product</h3>
+            <p id="most-product">—</p>
+          </article>
+          <article class="feature-card glass">
+            <h3>Average Expected Price</h3>
+            <p id="avg-price">—</p>
+          </article>
+          <article class="feature-card glass">
+            <h3>Prototype Tester Interest</h3>
+            <p id="beta-percent">0%</p>
+          </article>
+        </div>
+
+        <div class="cards-grid reveal" style="margin-top: 1.5rem;">
+          <article class="feature-card glass"><canvas id="ageChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="occupationChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="chargingChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="forgotChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="problemsChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="reminderChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="productChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="priceChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="devicesChart"></canvas></article>
+          <article class="feature-card glass"><canvas id="growthChart"></canvas></article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer"><div class="container footer-grid"><div><a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" /><span class="brand-name">SwitchOn</span></a><p>Compact smart charging reminders built for people who want peace of mind.</p></div></div></footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="firebase/firebase-config.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/survey-results.js"></script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | SwitchOn</title>
+    <meta name="description" content="Secure admin dashboard for managing SwitchOn survey responses." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="scroll-progress"></div>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Admin Dashboard</span>
+          <h1>Review, filter, and export survey responses.</h1>
+        </div>
+        <div class="glass page-card reveal">
+          <div class="form-field">
+            <label for="admin-email">Email</label>
+            <input id="admin-email" type="email" placeholder="admin@example.com" />
+          </div>
+          <div class="form-field">
+            <label for="admin-password">Password</label>
+            <input id="admin-password" type="password" placeholder="••••••••" />
+          </div>
+          <button id="admin-login" class="btn btn-primary">Sign In</button>
+          <p id="admin-status" class="form-status"></p>
+        </div>
+        <div id="admin-dashboard" hidden>
+          <div class="stats-grid reveal">
+            <article class="stat-card glass"><strong id="admin-total">0</strong><span>Total Responses</span></article>
+            <article class="stat-card glass"><strong id="admin-beta">0</strong><span>Beta Testers</span></article>
+            <article class="stat-card glass"><strong id="admin-rating">0</strong><span>Average Rating</span></article>
+            <article class="stat-card glass"><strong id="admin-frustration">0</strong><span>Average Frustration</span></article>
+          </div>
+          <div class="glass page-card reveal" style="margin-top: 1rem;">
+            <div class="form-field">
+              <label>Search</label>
+              <input id="admin-search" type="search" placeholder="Search responses" />
+            </div>
+            <div class="cards-grid">
+              <div class="form-field">
+                <label>Age</label>
+                <select id="admin-age"><option value="">All</option></select>
+              </div>
+              <div class="form-field">
+                <label>Occupation</label>
+                <select id="admin-occupation"><option value="">All</option></select>
+              </div>
+              <div class="form-field">
+                <label>Recommendation</label>
+                <select id="admin-rating-filter"><option value="">All</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+            </div>
+            <button id="admin-export" class="btn btn-secondary">Export CSV</button>
+          </div>
+          <div class="glass page-card reveal" style="margin-top: 1rem;">
+            <h3>Latest Submissions</h3>
+            <div id="admin-list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="firebase/firebase-config.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

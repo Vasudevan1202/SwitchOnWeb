@@ -1,16 +1,11 @@
 <!doctype html>
 <html lang="en">
-  <!-- SwitchOn survey page -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Survey Results | SwitchOn</title>
-    <meta name="description" content="Early survey data shows strong demand for a smarter charging reminder." />
+    <title>SwitchOn Survey | SwitchOn</title>
+    <meta name="description" content="A premium multi-step survey for SwitchOn that stores responses directly in Firebase Firestore." />
     <link rel="icon" href="favicon.png" type="image/png" />
-    <link rel="shortcut icon" href="favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
-    <meta name="msapplication-TileImage" content="favicon.png" />
-    <meta name="theme-color" content="#020617" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/animations.css" />
@@ -21,45 +16,65 @@
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="brand" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="eager" decoding="async" /><span class="brand-name">SwitchOn</span></a>
-        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html">Survey</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
+        <nav><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><ul class="nav-links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="problem.html">Problem</a></li><li><a href="solution.html">Solution</a></li><li><a href="prototype.html">Prototype</a></li><li><a href="survey.html" aria-current="page">Survey</a></li><li><a href="survey-results.html">Results</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="team.html">Founder</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="waitlist.html">Waitlist</a></li></ul></nav>
         <div class="nav-actions"><button class="search-toggle" aria-label="Search site" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg></button></div>
       </div>
       <div class="container search-panel glass" role="search"><input id="site-search" type="search" placeholder="Search pages..." aria-label="Search site" /><div class="search-results"></div></div>
     </header>
+
     <main class="section">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="eyebrow">Survey Results</span>
-          <h1>People want a reliable fix.</h1>
+          <span class="eyebrow">SwitchOn Survey</span>
+          <h1>Help shape the future of smart charging.</h1>
+          <p>Your feedback is stored securely in Firebase Firestore and used to improve the product experience.</p>
         </div>
-        <div class="survey-grid">
-          <article class="chart-card glass reveal">
-            <h3>Forgot charger switch</h3>
-            <div class="chart-figure">100%</div>
-            <p>Most users reported forgetting to switch the charger on.</p>
-          </article>
-          <article class="chart-card glass reveal">
-            <h3>Frustration level</h3>
-            <div class="chart-figure">★★★★★</div>
-            <p>Users described the issue as highly frustrating in daily life.</p>
-          </article>
-          <article class="chart-card glass reveal">
-            <h3>Want prototype</h3>
-            <div class="chart-figure">100%</div>
-            <p>Strong interest in testing a prototype immediately.</p>
-          </article>
-          <article class="chart-card glass reveal">
-            <h3>Want mobile notifications</h3>
-            <div class="chart-figure">75%</div>
-            <p>Many respondents wanted future mobile alerts too.</p>
-          </article>
+
+        <div class="glass page-card reveal" id="survey-shell">
+          <div class="survey-progress" aria-label="Survey progress">
+            <div class="survey-progress-bar"><div id="survey-progress-fill"></div></div>
+            <span id="step-indicator">Step 1 of 4</span>
+          </div>
+
+          <div class="survey-card-body">
+            <div class="survey-step-header">
+              <h2 id="step-title">About You</h2>
+              <p id="step-description">A quick introduction to understand who is experiencing this everyday charging issue.</p>
+            </div>
+            <div id="survey-step-content"></div>
+            <p id="survey-status" class="form-status"></p>
+            <div class="survey-actions">
+              <button class="btn btn-secondary" id="survey-prev" type="button">Previous</button>
+              <button class="btn btn-primary" id="survey-next" type="button">Next</button>
+              <button class="btn btn-primary" id="survey-submit" type="button" hidden>Submit Survey</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="survey-success-state" class="glass page-card reveal" hidden>
+          <div class="section-heading">
+            <span class="eyebrow">Thank You</span>
+            <h2>You're helping build smarter charging.</h2>
+            <p>Your survey response has been saved successfully and will help SwitchOn validate the product experience.</p>
+            <a href="survey-results.html" class="btn btn-primary">See Live Results</a>
+          </div>
+        </div>
+
+        <div id="survey-complete-state" class="glass page-card reveal" hidden>
+          <p>You have already submitted a survey response from this browser.</p>
         </div>
       </div>
     </main>
-    <footer class="footer"><div class="container footer-grid"><div><a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" /><span class="brand-name">SwitchOn</span></a><p>Compact smart charging reminders built for people who want peace of mind.</p></div><div class="social-links" aria-label="Social links"><a href="#">in</a><a href="#">x</a><a href="#">◎</a></div><div class="footer-links"><a href="contact.html">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+
+    <footer class="footer"><div class="container footer-grid"><div><a href="index.html" class="brand" style="margin-bottom: 0.8rem;" aria-label="SwitchOn home"><img src="logo.png" alt="SwitchOn logo" class="brand-logo" loading="lazy" decoding="async" /><span class="brand-name">SwitchOn</span></a><p>Compact smart charging reminders built for people who want peace of mind.</p></div></div></footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="firebase/firebase-config.js"></script>
+    <script src="js/firebase.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/animations.js"></script>
-    <script src="js/charts.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/survey.js"></script>
   </body>
 </html>
